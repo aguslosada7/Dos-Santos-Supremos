@@ -1,5 +1,8 @@
 package combatientes;
 
+import torneo.Combate;
+import torneo.Pareja;
+
 public class Cruce {
 	private Pareja parejaA;
 	private Pareja parejaB;

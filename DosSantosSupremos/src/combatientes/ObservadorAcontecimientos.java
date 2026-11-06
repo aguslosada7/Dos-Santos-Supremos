@@ -1,5 +1,10 @@
 package combatientes;
 
+import acontecimientos.AccionRealizada;
+import acontecimientos.Eliminacion;
+import acontecimientos.Proclamacion;
+import acontecimientos.ResultadoCombate;
+
 public interface ObservadorAcontecimientos {
 	public void recibirInicioCombate(InicioCombate evento);
 	public void recibirAccionRealizada(AccionRealizada evento);

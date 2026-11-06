@@ -2,8 +2,10 @@ package combatientes;
 
 import java.util.Objects;
 
+import tecnicas.CategoriaTecnica;
+
 public class Tecnica {
-	private String nombre;
+	private final String nombre;
 	private int costoEnergia;
 	private CategoriaTecnica categoria;
 
@@ -31,19 +33,17 @@ public class Tecnica {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(Integer.valueOf(costoEnergia), nombre);
+	public final int hashCode() {
+		return Objects.hashCode(nombre);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
+	public final boolean equals(Object obj) {
+		if (!Tecnica.class.isInstance(obj)) {
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Tecnica other = (Tecnica) obj;
-		return costoEnergia == other.costoEnergia && Objects.equals(nombre, other.nombre);
+		}
+
+		Tecnica otra = (Tecnica) obj;
+		return Objects.equals(nombre, otra.nombre);
 	}
 }
