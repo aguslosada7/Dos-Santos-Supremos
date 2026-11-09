@@ -1,8 +1,7 @@
-package combatientes;
+package acontecimientos;
 
 import acontecimientos.AccionRealizada;
 import acontecimientos.Eliminacion;
-import acontecimientos.Proclamacion;
 import acontecimientos.ResultadoCombate;
 
 public interface ObservadorAcontecimientos {

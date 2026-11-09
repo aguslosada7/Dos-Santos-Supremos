@@ -1,7 +1,8 @@
-package combatientes;
+package tecnicas;
 
 import java.util.Objects;
 
+import combatientes.Combatiente;
 import tecnicas.CategoriaTecnica;
 
 public class Tecnica {

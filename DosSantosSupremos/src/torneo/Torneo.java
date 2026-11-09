@@ -1,11 +1,9 @@
-package combatientes;
+package torneo;
 
 import java.util.List;
 import java.util.Set;
 
 import acontecimientos.CanalAcontecimientos;
-import torneo.Pareja;
-import torneo.Ronda;
 
 public class Torneo {
 	private List<Pareja> ordenInscripcion;

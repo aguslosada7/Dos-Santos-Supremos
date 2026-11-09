@@ -2,8 +2,6 @@ package acontecimientos;
 
 import java.util.Objects;
 
-import combatientes.ObservadorAcontecimientos;
-
 public record Proclamacion(int idParejaCampeona, int idPrimerCampeon, String nombrePrimerCampeon, int idSegundoCampeon,
 		String nombreSegundoCampeon) implements Acontecimiento {
 	public Proclamacion {

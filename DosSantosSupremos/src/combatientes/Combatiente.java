@@ -13,6 +13,8 @@ public class Combatiente {
 	public Combatiente(int id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
+		vidaActual = VIDA_MAXIMA;
+		energiaActual = ENERGIA_MAXIMA;
 	}
 	
 	@Override

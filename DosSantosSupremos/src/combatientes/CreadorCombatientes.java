@@ -15,7 +15,7 @@ public class CreadorCombatientes {
 		if(tipo == "Cultivador de la Espada")
 			combatiente = new CultivadorDeLaEspada(siguienteId, nombre);
 		
-		escuela.preparar();
+		escuela.preparar(combatiente);
 		
 		siguienteId += 1;
 		return combatiente;

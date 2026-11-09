@@ -9,12 +9,12 @@ import java.util.Optional;
 import acontecimientos.AccionRealizada;
 import acontecimientos.CanalAcontecimientos;
 import acontecimientos.Eliminacion;
+import acontecimientos.InicioCombate;
 import acontecimientos.ResultadoCombate;
 import acontecimientos.TipoAccion;
 import combatientes.Combatiente;
-import combatientes.InicioCombate;
-import combatientes.Tecnica;
 import tecnicas.CategoriaTecnica;
+import tecnicas.Tecnica;
 
 public class Combate {
 	private final int ronda;

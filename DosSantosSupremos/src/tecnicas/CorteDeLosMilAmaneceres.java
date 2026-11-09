@@ -3,7 +3,6 @@ package tecnicas;
 import java.util.Objects;
 
 import combatientes.Combatiente;
-import combatientes.Tecnica;
 
 public class CorteDeLosMilAmaneceres extends Tecnica {
 	public CorteDeLosMilAmaneceres() {

@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import combatientes.Combatiente;
-import combatientes.Tecnica;
+import tecnicas.Tecnica;
 
 public class Pareja {
 	private final int id;
