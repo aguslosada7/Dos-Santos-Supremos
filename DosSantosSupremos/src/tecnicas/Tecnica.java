@@ -3,7 +3,6 @@ package tecnicas;
 import java.util.Objects;
 
 import combatientes.Combatiente;
-import tecnicas.CategoriaTecnica;
 
 public abstract class Tecnica {
 	private final String nombre;
@@ -13,6 +12,19 @@ public abstract class Tecnica {
 	private final static int USOS_MAXIMOS_POR_TECNICA = 5;
 
 	protected Tecnica(String nombre, int costoEnergia, int danio, CategoriaTecnica categoria) {
+		Objects.requireNonNull(nombre, "El nombre de la técnica es obligatorio.");
+		
+        if (nombre.isBlank())
+            throw new IllegalArgumentException("El nombre no puede estar en blanco.");
+        
+        if (costoEnergia < 0)
+            throw new IllegalArgumentException("El costo de energía no puede ser negativo.");
+        
+        if (danio < 0)
+            throw new IllegalArgumentException("El daño no puede ser negativo.");
+        
+        Objects.requireNonNull(categoria, "La categoría es obligatoria.");
+		
 		this.nombre = nombre;
 		this.costoEnergia = costoEnergia;
 		this.danio = danio;
@@ -28,6 +40,10 @@ public abstract class Tecnica {
 
 	public int getCostoEnergia() {
 		return costoEnergia;
+	}
+	
+	public int getDanio() {
+		return danio;
 	}
 
 	public CategoriaTecnica getCategoria() {
