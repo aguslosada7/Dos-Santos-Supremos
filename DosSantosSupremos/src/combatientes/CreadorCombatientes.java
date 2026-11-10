@@ -1,23 +1,27 @@
 package combatientes;
 
+import java.util.Objects;
+
 public class CreadorCombatientes {
-	private static int siguienteId = 1;
+	private static int SIGUIENTE_ID = 1;
 	
 	public Combatiente crear(String tipo, String nombre, Escuela escuela) {
 		Combatiente combatiente;
 		
+		Objects.requireNonNull(escuela, "La escuela es obligatoria.");
+		
 		if(tipo == "Hechicero del Vacío")
-			combatiente = new HechiceroDelVacio(siguienteId, nombre);
+			combatiente = new HechiceroDelVacio(SIGUIENTE_ID, nombre);
 		
 		if(tipo == "Monje del Cuerpo Celestial")
-			combatiente = new MonjeDelCuerpoCelestial(siguienteId, nombre);
+			combatiente = new MonjeDelCuerpoCelestial(SIGUIENTE_ID, nombre);
 		
 		if(tipo == "Cultivador de la Espada")
-			combatiente = new CultivadorDeLaEspada(siguienteId, nombre);
+			combatiente = new CultivadorDeLaEspada(SIGUIENTE_ID, nombre);
 		
 		escuela.preparar(combatiente);
 		
-		siguienteId += 1;
+		SIGUIENTE_ID++;
 		return combatiente;
 	}
 }

@@ -5,21 +5,22 @@ import java.util.Objects;
 import combatientes.Combatiente;
 import tecnicas.CategoriaTecnica;
 
-public class Tecnica {
+public abstract class Tecnica {
 	private final String nombre;
 	private int costoEnergia;
+	private int danio;
 	private CategoriaTecnica categoria;
+	private final static int USOS_MAXIMOS_POR_TECNICA = 5;
 
-	protected Tecnica(String nombre, int costoEnergia, CategoriaTecnica categoria) {
-		super();
+	protected Tecnica(String nombre, int costoEnergia, int danio, CategoriaTecnica categoria) {
 		this.nombre = nombre;
 		this.costoEnergia = costoEnergia;
+		this.danio = danio;
 		this.categoria = categoria;
 	}
-	
-	public void aplicar(Combatiente ejecutor, Combatiente objetivo) {
-		//
-	}
+
+	// No hay un comportamiento común para todas las técnicas, varían según su tipo.
+	public abstract void aplicar(Combatiente ejecutor, Combatiente objetivo);
 
 	public String getNombre() {
 		return nombre;
@@ -31,6 +32,10 @@ public class Tecnica {
 
 	public CategoriaTecnica getCategoria() {
 		return categoria;
+	}
+
+	public static int getUsosMaximosPorTecnica() {
+		return USOS_MAXIMOS_POR_TECNICA;
 	}
 
 	@Override
