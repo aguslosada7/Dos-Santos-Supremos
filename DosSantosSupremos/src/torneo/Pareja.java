@@ -11,7 +11,8 @@ import tecnicas.Tecnica;
 
 public class Pareja {
 	private final int id;
-	private final List<Combatiente> integrantes;
+	private Combatiente combatienteA;
+	private Combatiente combatienteB;
 	private final Map<Tecnica, Combatiente> primerUsuarioPorTecnica = new HashMap<>();
 
 	public Pareja(int id, Combatiente primero, Combatiente segundo) {
@@ -24,24 +25,35 @@ public class Pareja {
 		}
 
 		this.id = id;
-		this.integrantes = List.of(primero, segundo);
+		combatienteA = primero;
+		combatienteB = segundo;
 	}
 
 	public int getId() {
 		return id;
 	}
+	
+	public Combatiente getCombatienteA() {
+		return combatienteA;
+	}
 
-	public List<Combatiente> getIntegrantes() {
-		return integrantes;
+	public Combatiente getCombatienteB() {
+		return combatienteB;
+	}
+
+	public List<Combatiente> getIntegrantes(){
+		return List.of(combatienteA, combatienteB);
 	}
 
 	public List<Combatiente> integrantesEnPie() {
 		List<Combatiente> enPie = new ArrayList<>();
 
-		for (Combatiente integrante : integrantes) {
-			if (integrante.estaEnPie()) {
-				enPie.add(integrante);
-			}
+		if (combatienteA.estaEnPie()) {
+			enPie.add(combatienteA);
+		}
+		
+		if (combatienteB.estaEnPie()) {
+			enPie.add(combatienteB);
 		}
 
 		return List.copyOf(enPie);
@@ -54,10 +66,12 @@ public class Pareja {
 	public int vidaTotal() {
 		int total = 0;
 
-		for (Combatiente integrante : integrantes) {
-			if (integrante.estaEnPie()) {
-				total = Math.addExact(total, integrante.getVidaActual());
-			}
+		if (combatienteA.estaEnPie()) {
+			total += combatienteA.getVidaActual();
+		}
+		
+		if (combatienteB.estaEnPie()) {
+			total += combatienteB.getVidaActual();
 		}
 
 		return total;
@@ -91,10 +105,12 @@ public class Pareja {
 	private Combatiente buscarIntegrante(Combatiente combatiente) {
 		Objects.requireNonNull(combatiente, "El combatiente es obligatorio.");
 
-		for (Combatiente integrante : integrantes) {
-			if (integrante.getId() == combatiente.getId()) {
-				return integrante;
-			}
+		if (combatienteA.getId() == combatiente.getId()) {
+			return combatienteA;
+		}
+		
+		if (combatienteB.getId() == combatiente.getId()) {
+			return combatienteB;
 		}
 
 		throw new IllegalArgumentException("El combatiente no pertenece a la pareja.");

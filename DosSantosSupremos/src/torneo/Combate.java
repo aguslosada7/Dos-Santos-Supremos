@@ -139,12 +139,11 @@ public class Combate {
 			return;
 		}
 
-		Optional<Tecnica> elegida = combatiente.elegirTecnica(pareja);
-
-		if (elegida.isPresent()) {
-			ejecutarTecnica(pareja, combatiente, elegida.get());
+		Tecnica elegida = combatiente.elegirTecnica(pareja);
+		if (elegida != null) {
+		    ejecutarTecnica(pareja, combatiente, elegida);
 		} else {
-			ejecutarAtaqueBasico(combatiente);
+		    ejecutarAtaqueBasico(combatiente);
 		}
 	}
 
