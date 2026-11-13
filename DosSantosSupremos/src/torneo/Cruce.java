@@ -13,6 +13,9 @@ public class Cruce {
 		Objects.requireNonNull(parejaB, "Las parejas son obligatorias.");
 		Objects.requireNonNull(combate, "El combate es obligatorio.");
 		
+		if (parejaA.equals(parejaB))
+			throw new IllegalArgumentException("Las parejas deben ser distintas.");
+		
 		this.parejaA = parejaA;
 		this.parejaB = parejaB;
 		this.combate = combate;

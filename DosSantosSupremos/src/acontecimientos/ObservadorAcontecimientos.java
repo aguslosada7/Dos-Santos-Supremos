@@ -1,9 +1,5 @@
 package acontecimientos;
 
-import acontecimientos.AccionRealizada;
-import acontecimientos.Eliminacion;
-import acontecimientos.ResultadoCombate;
-
 public interface ObservadorAcontecimientos {
 	public void recibirInicioCombate(InicioCombate evento);
 	public void recibirAccionRealizada(AccionRealizada evento);

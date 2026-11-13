@@ -8,6 +8,7 @@ import java.util.Set;
 
 import acontecimientos.CanalAcontecimientos;
 import acontecimientos.ObservadorAcontecimientos;
+import acontecimientos.Proclamacion;
 import combatientes.Combatiente;
 
 public class Torneo {
@@ -16,12 +17,12 @@ public class Torneo {
     private Set<Integer> idsParejasInscritas = new HashSet<>();
     private Set<Integer> idsCombatientesInscritos = new HashSet<>();
 	private EstadoTorneo estado = EstadoTorneo.PENDIENTE;
-	private CanalAcontecimientos canalAcontecimientos;
+	private CanalAcontecimientos canalAcontecimientos = new CanalAcontecimientos();
 	private Pareja parejaCampeona;
 	private final static int LIMITE_ASALTOS = 50;
 	private final static int ENERGIA_POR_ASALTO = 6;
 	
-	public void inscribir(Pareja pareja) {
+	public void inscribir(Pareja pareja) throws InscripcionInvalidaException {
 		Objects.requireNonNull(pareja, "La pareja es obligatoria.");
 		
         if (estado != EstadoTorneo.PENDIENTE)
@@ -42,7 +43,7 @@ public class Torneo {
 		ordenInscripcion.add(pareja);
 		idsParejasInscritas.add(pareja.getId());
 		idsCombatientesInscritos.add(combatienteA.getId());
-		idsCombatientesInscritos.add(combatienteA.getId());
+		idsCombatientesInscritos.add(combatienteB.getId());
 	}
 	
 	public void suscribir(ObservadorAcontecimientos observador) {
@@ -74,8 +75,8 @@ public class Torneo {
 		
 		Combatiente combatienteA = parejaCampeona.getCombatienteA();
 		Combatiente combatienteB = parejaCampeona.getCombatienteB();
-		canalAcontecimientos.publicar(new Proclamacion(parejaCampeona.getId(), combatienteA.getId(), combatienteB.getId(),
-				combatienteA.getNombre(), combatienteB.getNombre()));
+		canalAcontecimientos.publicar(new Proclamacion(parejaCampeona.getId(), combatienteA.getId(), combatienteA.getNombre(),
+				combatienteB.getId(), combatienteB.getNombre()));
 	}
 	
 	private Ronda armarRonda(int numero, List<Pareja> parejas) {
@@ -89,5 +90,17 @@ public class Torneo {
 		}
 		
 		return new Ronda(numero, cruces);
+	}
+
+	public Pareja getParejaCampeona() {
+		return parejaCampeona;
+	}
+
+	public EstadoTorneo getEstado() {
+		return estado;
+	}
+
+	public List<Ronda> getRondas() {
+		return rondas;
 	}
 }
