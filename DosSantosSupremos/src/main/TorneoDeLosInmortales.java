@@ -1,4 +1,4 @@
-package torneo;
+package main;
 
 import java.util.List;
 
@@ -7,8 +7,16 @@ import combatientes.Combatiente;
 import combatientes.CreadorCombatientes;
 import combatientes.ImpulsoPorCaida;
 import equipamiento.AnilloEspiritual;
+import equipamiento.ArmaduraDorada;
+import equipamiento.EspadaCelestial;
 import equipamiento.SelloDelFenix;
 import tecnicas.CorteDeLosMilAmaneceres;
+import tecnicas.DominioDeLaNada;
+import tecnicas.MeditacionDelInmortal;
+import tecnicas.MuroDelCuerpoDorado;
+import tecnicas.RugidoDeLaBestiaPrimordial;
+import torneo.Pareja;
+import torneo.Torneo;
 
 public class TorneoDeLosInmortales {
 	public static void main(String[] args) {
