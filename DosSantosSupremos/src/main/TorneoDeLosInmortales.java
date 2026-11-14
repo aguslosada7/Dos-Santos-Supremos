@@ -17,11 +17,12 @@ import tecnicas.MeditacionDelInmortal;
 import tecnicas.MuroDelCuerpoDorado;
 import tecnicas.RugidoDeLaBestiaPrimordial;
 import torneo.Escuela;
+import torneo.InscripcionInvalidaException;
 import torneo.Pareja;
 import torneo.Torneo;
 
 public class TorneoDeLosInmortales {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InscripcionInvalidaException {
 		// Escuela
 		Escuela escuelaDeLaEspada = new Escuela("Escuela de la Espada Celestial",
 				List.of(new CorteDeLosMilAmaneceres(), new RugidoDeLaBestiaPrimordial()),

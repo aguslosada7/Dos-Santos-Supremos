@@ -1,6 +1,8 @@
 package combatientes;
 
 public class HechiceroDelVacio extends Combatiente {
+	private final static int PORCENTAJE_REDUCCION_COSTO = 75;
+	
 	public HechiceroDelVacio(int id, String nombre) {
 		super(id, nombre);
 	}
@@ -12,6 +14,6 @@ public class HechiceroDelVacio extends Combatiente {
         }
         
         // Se aplica -25% al costo de técnicas
-        return Math.max(1, (costo * 75) / 100);
+        return Math.max(1, (costo * PORCENTAJE_REDUCCION_COSTO) / 100);
     }
 }

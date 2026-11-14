@@ -45,7 +45,7 @@ public class CronistaDeLaSecta implements ObservadorAcontecimientos {
 		registrar(evento);
 	}
 
-	public void registrar(Acontecimiento evento) {
+	private void registrar(Acontecimiento evento) {
 		historial.add(Objects.requireNonNull(evento, "El acontecimiento es obligatorio."));
 	}
 
