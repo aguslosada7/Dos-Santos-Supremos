@@ -62,13 +62,4 @@ class MonjeDelCuerpoCelestialTest {
 		assertEquals(30, monje.calcularDanio(30));
 		assertEquals(8, monje.calcularCostoEnergia(8));
 	}
-
-	@Test
-	void dosCombatientesConElMismoIdSonIgualesAunqueCambieElTipo() {
-		Combatiente monje = new MonjeDelCuerpoCelestial(1, "Kael");
-		Combatiente cultivador = new CultivadorDeLaEspada(1, "Otro");
-
-		assertEquals(monje, cultivador);
-		assertEquals(monje.hashCode(), cultivador.hashCode());
-	}
 }

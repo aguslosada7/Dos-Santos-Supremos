@@ -5,8 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
+import equipamiento.AnilloEspiritual;
+import equipamiento.SelloDelFenix;
+import tecnicas.CorteDeLosMilAmaneceres;
+import tecnicas.MuroDelCuerpoDorado;
 import torneo.Escuela;
 
 class CreadorCombatientesTest {
@@ -16,7 +22,8 @@ class CreadorCombatientesTest {
 		Combatiente combatientePreparado = null;
 
 		EscuelaDePrueba() {
-			super("Escuela de Prueba", null, null);
+			super("Escuela de Prueba", List.of(new CorteDeLosMilAmaneceres(), new MuroDelCuerpoDorado()),
+				List.of(new AnilloEspiritual(), new SelloDelFenix()));
 		}
 
 		public void preparar(Combatiente combatiente) {

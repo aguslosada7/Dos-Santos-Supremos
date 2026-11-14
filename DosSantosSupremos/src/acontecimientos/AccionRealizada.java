@@ -11,16 +11,23 @@ public record AccionRealizada(int ronda, int numeroAsalto, int idActor, String n
 		if (ronda <= 0 || numeroAsalto <= 0 || idActor <= 0 || idObjetivo <= 0) {
 			throw new IllegalArgumentException("La ronda, el asalto y los ids deben ser positivos.");
 		}
+		
+		if(tipoAccion == TipoAccion.ATAQUE_BASICO && idActor == idObjetivo)
+			throw new IllegalArgumentException("Los combatientes deben ser distintos.");
 
 		if (costoPagado < 0 || danioEfectivo < 0 || vidaActorFinal < 0 || energiaActorFinal < 0 || vidaObjetivoFinal < 0
 				|| energiaObjetivoFinal < 0) {
 			throw new IllegalArgumentException("El costo, el daño, la vida y la energía no pueden ser negativos.");
 		}
+		
+		if(nombreActor.isBlank() || nombreObjetivo.isBlank())
+			throw new IllegalArgumentException("Los nombres del actor y del objetivo son obligatorios.");
 
-		Objects.requireNonNull(nombreActor, "El nombre del actor es obligatorio.");
-		Objects.requireNonNull(nombreObjetivo, "El nombre del objetivo es obligatorio.");
-		Objects.requireNonNull(tipoAccion, "El tipo de acción es obligatorio.");
-		Objects.requireNonNull(nombreTecnica, "El nombre de la técnica es obligatorio.");
+		if(tipoAccion == TipoAccion.TECNICA && nombreTecnica.isBlank())
+			throw new IllegalArgumentException("El nombre de la técnica es obligatorio.");
+		
+		if(tipoAccion == null)
+			throw new IllegalArgumentException("El tipo de acción es obligatorio.");
 	}
 
 	@Override

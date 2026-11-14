@@ -1,12 +1,14 @@
 package combatientes;
 
 public class MonjeDelCuerpoCelestial extends Combatiente{
-		public MonjeDelCuerpoCelestial(int id, String nombre) {
-			super(id, nombre);
-		}
+	private final static int PORCENTAJE_REDUCCION_DANIO = 80;
+	
+	public MonjeDelCuerpoCelestial(int id, String nombre) {
+		super(id, nombre);
+	}
 		
-		@Override
-	    protected int modificarDanioRecibidoPorTipo(int cantidad) {
-			return cantidad * 80 / 100;
-		}
+	@Override
+    protected int modificarDanioRecibidoPorTipo(int cantidad) {
+		return cantidad * PORCENTAJE_REDUCCION_DANIO / 100;
+	}
 }

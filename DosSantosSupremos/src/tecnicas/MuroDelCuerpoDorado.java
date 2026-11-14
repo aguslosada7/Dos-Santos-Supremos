@@ -9,7 +9,7 @@ public class MuroDelCuerpoDorado extends Tecnica{
 	private final static int REDUCCION = 6;
 	
 	public MuroDelCuerpoDorado() {
-		super("Muro del Cuerpo Dorado", COSTO, REDUCCION, CategoriaTecnica.DEFENSIVA);
+		super("Muro del Cuerpo Dorado", COSTO, 0, CategoriaTecnica.DEFENSIVA);
 	}
 
 	@Override
