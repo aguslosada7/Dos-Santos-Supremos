@@ -3,6 +3,7 @@ package main;
 import java.util.List;
 
 import acontecimientos.CronistaDeLaSecta;
+import acontecimientos.HeraldoImperial;
 import combatientes.Combatiente;
 import combatientes.CreadorCombatientes;
 import combatientes.ImpulsoPorCaida;
@@ -15,6 +16,7 @@ import tecnicas.DominioDeLaNada;
 import tecnicas.MeditacionDelInmortal;
 import tecnicas.MuroDelCuerpoDorado;
 import tecnicas.RugidoDeLaBestiaPrimordial;
+import torneo.Escuela;
 import torneo.Pareja;
 import torneo.Torneo;
 

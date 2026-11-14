@@ -2,6 +2,8 @@ package combatientes;
 
 import java.util.Objects;
 
+import torneo.Escuela;
+
 public class CreadorCombatientes {
 	private static int SIGUIENTE_ID = 1;
 	

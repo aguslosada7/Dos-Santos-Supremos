@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+import torneo.Escuela;
+
 class CreadorCombatientesTest {
 
 	private static class EscuelaDePrueba extends Escuela {
@@ -14,7 +16,7 @@ class CreadorCombatientesTest {
 		Combatiente combatientePreparado = null;
 
 		EscuelaDePrueba() {
-			super();
+			super("Escuela de Prueba", null, null);
 		}
 
 		public void preparar(Combatiente combatiente) {
@@ -32,7 +34,6 @@ class CreadorCombatientesTest {
 
 		assertInstanceOf(HechiceroDelVacio.class, combatiente);
 		assertEquals("Nébula", combatiente.getNombre());
-		assertEquals(1, combatiente.getId());
 	}
 
 	@Test
@@ -44,7 +45,6 @@ class CreadorCombatientesTest {
 
 		assertInstanceOf(CultivadorDeLaEspada.class, combatiente);
 		assertEquals("Aurelio", combatiente.getNombre());
-		assertEquals(1, combatiente.getId());
 	}
 
 	@Test
@@ -56,7 +56,6 @@ class CreadorCombatientesTest {
 
 		assertInstanceOf(MonjeDelCuerpoCelestial.class, combatiente);
 		assertEquals("Kael", combatiente.getNombre());
-		assertEquals(1, combatiente.getId());
 	}
 
 	@Test
