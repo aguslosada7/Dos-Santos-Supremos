@@ -23,8 +23,8 @@ class CronistaDeLaSectaTest {
 		CanalAcontecimientos canal = new CanalAcontecimientos();
 		canal.suscribir(cronista);
 		InicioCombate inicio = new InicioCombate(1, 1, 2);
-		AccionRealizada accion = new AccionRealizada(1, 1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0,
-				12, 100, 40, 88, 40);
+		AccionRealizada accion = new AccionRealizada(1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0,
+				12, 0, 100, 40, 88, 40, null);
 		Eliminacion eliminacion = new Eliminacion(1, 5, 2, 3, "Lyra");
 		ResultadoCombate resultado = new ResultadoCombate(1, 5, 1, 2, 1, 100, 0);
 		Proclamacion proclamacion = new Proclamacion(1, 1, "Aurelio", 2, "Nébula");

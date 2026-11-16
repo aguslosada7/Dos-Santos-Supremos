@@ -165,7 +165,8 @@ public class Combate {
 			objetivo = ejecutor.elegirObjetivo(rivales.integrantesEnPie());
 		}
 
-		int vidaAnterior = objetivo.getVidaActual();
+		int vidaAnteriorObjetivo = objetivo.getVidaActual();
+		int vidaAnteriorEjecutor = ejecutor.getVidaActual();
 
 		ejecutor.perderEnergia(costo);
 
@@ -176,14 +177,19 @@ public class Combate {
 		tecnica.aplicar(ejecutor, objetivo);
 
 		int danioEfectivo = 0;
+		int vidaRecuperada = 0;
 
 		if (tecnica.getCategoria() == CategoriaTecnica.OFENSIVA) {
-			danioEfectivo = Math.max(0, vidaAnterior - objetivo.getVidaActual());
+			danioEfectivo = Math.max(0, vidaAnteriorObjetivo - objetivo.getVidaActual());
+		}
+		
+		if (tecnica.getCategoria() == CategoriaTecnica.RECUPERACION) {
+			vidaRecuperada = Math.max(0, ejecutor.getVidaActual() - vidaAnteriorEjecutor);
 		}
 
-		publicarAccion(ejecutor, objetivo, TipoAccion.TECNICA, tecnica.getNombre(), costo, danioEfectivo);
+		publicarAccion(ejecutor, objetivo, TipoAccion.TECNICA, tecnica.getNombre(), costo, danioEfectivo, vidaRecuperada, tecnica.getCategoria());
 
-		if (vidaAnterior > 0 && !objetivo.estaEnPie()) {
+		if (vidaAnteriorObjetivo > 0 && !objetivo.estaEnPie()) {
 			notificarCaidaDeCompaniero(objetivo);
 		}
 	}
@@ -201,19 +207,19 @@ public class Combate {
 
 		int danioEfectivo = Math.max(0, vidaAnterior - objetivo.getVidaActual());
 
-		publicarAccion(ejecutor, objetivo, TipoAccion.ATAQUE_BASICO, "", 0, danioEfectivo);
+		publicarAccion(ejecutor, objetivo, TipoAccion.ATAQUE_BASICO, "", 0, danioEfectivo, 0, null);
 
 		if (vidaAnterior > 0 && !objetivo.estaEnPie()) {
 			notificarCaidaDeCompaniero(objetivo);
 		}
 	}
 
-	private void publicarAccion(Combatiente ejecutor, Combatiente objetivo, TipoAccion tipo, String nombreTecnica,
-			int costo, int danioEfectivo) {
+	private void publicarAccion(Combatiente ejecutor, Combatiente objetivo, TipoAccion tipo, String nombreTecnica, int costo,
+			int danioEfectivo, int vidaRecuperada, CategoriaTecnica categoriaTecnica) {
 		canalAcontecimientos.publicar(
-				new AccionRealizada(ronda, numeroAsalto, ejecutor.getId(), ejecutor.getNombre(), objetivo.getId(),
-						objetivo.getNombre(), tipo, nombreTecnica, costo, danioEfectivo, ejecutor.getVidaActual(),
-						ejecutor.getEnergiaActual(), objetivo.getVidaActual(), objetivo.getEnergiaActual()));
+				new AccionRealizada(numeroAsalto, ejecutor.getId(), ejecutor.getNombre(), objetivo.getId(),
+						objetivo.getNombre(), tipo, nombreTecnica, costo, danioEfectivo, vidaRecuperada, ejecutor.getVidaActual(),
+						ejecutor.getEnergiaActual(), objetivo.getVidaActual(), objetivo.getEnergiaActual(), categoriaTecnica));
 	}
 
 	private void notificarCaidaDeCompaniero(Combatiente caido) {

@@ -9,6 +9,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import tecnicas.CategoriaTecnica;
+
 class CanalAcontecimientosTest {
 
 	@Test
@@ -50,10 +52,10 @@ class CanalAcontecimientosTest {
 		canal.suscribir(cronista);
 
 		InicioCombate inicio = new InicioCombate(1, 1, 2);
-		AccionRealizada accionAtaque = new AccionRealizada(1, 1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0,
-				12, 100, 40, 88, 40);
-		AccionRealizada accionTecnica = new AccionRealizada(1, 1, 1, "Aurelio", 3, "Lyra", TipoAccion.TECNICA,
-				"Corte de los Mil Amaneceres", 10, 25, 100, 30, 63, 40);
+		AccionRealizada accionAtaque = new AccionRealizada(1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0,
+				12, 0, 100, 40, 88, 40, null);
+		AccionRealizada accionTecnica = new AccionRealizada(1, 1, "Aurelio", 3, "Lyra", TipoAccion.TECNICA,
+				"Corte de los Mil Amaneceres", 10, 25, 0, 100, 30, 63, 40, CategoriaTecnica.OFENSIVA);
 		Eliminacion eliminacion = new Eliminacion(1, 3, 2, 4, "Kael");
 		ResultadoCombate resultado = new ResultadoCombate(1, 3, 1, 2, 1, 80, 0);
 		Proclamacion proclamacion = new Proclamacion(1, 1, "Aurelio", 2, "Nébula");
@@ -76,8 +78,8 @@ class CanalAcontecimientosTest {
 		canal.suscribir(cronista);
 
 		InicioCombate inicio = new InicioCombate(1, 1, 2);
-		AccionRealizada accion = new AccionRealizada(1, 1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0,
-				12, 100, 40, 88, 40);
+		AccionRealizada accion = new AccionRealizada(1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0,
+				12, 0, 100, 40, 88, 40, null);
 		Eliminacion eliminacion = new Eliminacion(1, 3, 2, 4, "Kael");
 		ResultadoCombate resultado = new ResultadoCombate(1, 3, 1, 2, 1, 80, 0);
 
@@ -154,8 +156,8 @@ class CanalAcontecimientosTest {
 
 		assertDoesNotThrow(() -> {
 			canal.publicar(new InicioCombate(1, 1, 2));
-			canal.publicar(new AccionRealizada(1, 1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0, 12, 100, 40,
-					88, 40));
+			canal.publicar(new AccionRealizada(1, 1, "Aurelio", 3, "Lyra", TipoAccion.ATAQUE_BASICO, "", 0, 12, 0, 100,
+					40, 88, 40, null));
 			canal.publicar(new Eliminacion(1, 3, 2, 4, "Kael"));
 			canal.publicar(new ResultadoCombate(1, 3, 1, 2, 1, 80, 0));
 			canal.publicar(new Proclamacion(1, 1, "Aurelio", 2, "Nébula"));
