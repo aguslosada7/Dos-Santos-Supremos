@@ -4,6 +4,7 @@ Trabajo Práctico N.º 2 de Paradigmas de Programación: torneo eliminatorio por
 
 - [Consigna del trabajo](Consigna.pdf).
 - [Diagrama de clases](DiagramaDeClases.jpg).
+- [Informe](Informe%20TP2%20-%20Grupo%20Beta.pdf).
 
 ## Diseño general
 
