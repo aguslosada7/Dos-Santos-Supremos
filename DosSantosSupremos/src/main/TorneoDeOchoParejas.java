@@ -55,7 +55,7 @@ public class TorneoDeOchoParejas {
 		Combatiente sarlaac = creador.crear("Monje del Cuerpo Celestial", "Sarlaac", monasterioDelCuerpoDorado);
 		Combatiente aragog = creador.crear("Hechicero del Vacío", "Aragog", palacioDelVacio);
 		Combatiente hornet = creador.crear("Cultivador de la Espada", "Hornet", escuelaDelAmanecer);
-		Combatiente doom = creador.crear("Monje del Cuerpo Celestial", "Selene", palacioDelVacio);
+		Combatiente doom = creador.crear("Monje del Cuerpo Celestial", "Doom", palacioDelVacio);
 		Combatiente aquiles = creador.crear("Cultivador de la Espada", "Aquiles", monasterioDelCuerpoDorado);
 
 		aurelio.configurarReaccion(new ImpulsoPorCaida(10));
